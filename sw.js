@@ -1,9 +1,9 @@
 // Kpal: guarda la app en el móvil para que abra sin internet.
 // Con internet, siempre busca primero la versión nueva; sin internet, usa la guardada.
-const CACHE = 'kpal-app-2.9';
+const CACHE = 'kpal-app-2.9.1';
 const ARCHIVOS = ['./', './index.html', './style.css', './app.js', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ARCHIVOS)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ARCHIVOS.map(u => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('kpal-') && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));
@@ -16,7 +16,8 @@ self.addEventListener('fetch', e => {
   const fuentes = /fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
   if (!propio && !fuentes) return;
   const guardada = () => caches.match(req, { ignoreSearch: true }).then(r => r || (req.mode === 'navigate' ? caches.match('./index.html') : undefined));
-  const red = fetch(req).then(res => {
+  // Pide siempre al servidor si hay versión nueva (no usa la copia vieja del navegador).
+  const red = (propio ? fetch(req.url, { cache: 'no-cache', credentials: 'same-origin' }) : fetch(req)).then(res => {
     if (res && (res.ok || res.type === 'opaque')) { const copia = res.clone(); caches.open(CACHE).then(c => c.put(req, copia)); }
     return res;
   });
