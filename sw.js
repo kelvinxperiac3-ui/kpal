@@ -1,6 +1,6 @@
 // Kpal: guarda la app en el móvil para que abra sin internet.
 // Con internet, siempre busca primero la versión nueva; sin internet, usa la guardada.
-const CACHE = 'kpal-app-2.14';
+const CACHE = 'kpal-app-2.15';
 const ARCHIVOS = ['./', './index.html', './style.css', './app.js', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ARCHIVOS.map(u => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting()));

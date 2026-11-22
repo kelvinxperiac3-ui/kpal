@@ -13,3 +13,4 @@ nav.drawer{position:fixed;top:0;left:0;bottom:0;width:min(78vw,280px);background
 
 .ubi-form{margin-top:4px}.ubi-titulo{font-size:13px;font-weight:700;color:#526b56;margin:0 0 5px}.ubi-form .actions{margin-top:8px}.ubi-form input[type=hidden]{display:none}.ubi-form .tip{margin-top:0}.ubi-espera{text-align:center;padding:8px 2px}.ubi-lista{max-height:50vh;overflow-y:auto;margin:0}.ubi-lista .item{padding:12px 14px}.ubi-lista h3{font-size:15px;overflow-wrap:anywhere}.ubi-lista p{margin:3px 0 0;font-size:12px}.ubi-nuevo{width:100%;margin-top:10px}.sin-ubi{background:#f4f4f0;color:#9aa69a}
 @media(max-width:550px){.ubi-lista{max-height:46vh}.section-head.row{flex-wrap:wrap;gap:8px}.section-head.row>div{flex:1 1 100%}.section-head.row .secondary,.section-head.row .primary{white-space:nowrap}}
+.venta-hoy-der{display:flex;flex-direction:column;align-items:flex-end;gap:6px}.venta-hoy-der button{padding:6px 10px;font-size:13px}#modal form.venta{display:grid;gap:12px}
