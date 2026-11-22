@@ -16,3 +16,4 @@ nav.drawer{position:fixed;top:0;left:0;bottom:0;width:min(78vw,280px);background
 .venta-hoy-der{display:flex;flex-direction:column;align-items:flex-end;gap:6px}.venta-hoy-der button{padding:6px 10px;font-size:13px}#modal form.venta{display:grid;gap:12px}
 .venta-total{margin:0}.venta-total-in{display:flex;align-items:center;gap:2px;flex:1;justify-content:flex-end}.venta-total-in b{font-family:Outfit;font-size:28px;color:#fff}.venta .venta-total-in input,.venta-total-in input{width:100%;max-width:190px;margin:0;padding:4px 6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-family:Outfit;font-size:28px;font-weight:700;text-align:right}.venta-total-in input::placeholder{color:#cbdcc8}.venta-ayuda{margin:-6px 0 0;font-size:12px}
 .venta-total>span:first-child{white-space:nowrap;margin-right:10px}
+.venta-cerca{margin:-6px 0 0;font-size:13px;background:#eef5ea;border-radius:10px;padding:8px 10px;color:#2f5a3c}
